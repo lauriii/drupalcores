@@ -16,12 +16,15 @@
   <col width="65%">
   <col width="15%">
   <col width="15%">
- <tr>
- <th>#</th>
-  <th>Drupal.org Username</th>
-  <th>Mentions</th>
-  <th>Percent</th>
- </tr>
+  <thead>
+   <tr>
+   <th>#</th>
+    <th>Drupal.org Username</th>
+    <th>Mentions</th>
+    <th>Percent</th>
+   </tr>
+  </thead>
+  <tbody>
  <% contributors.each do |name, mentions| %>
  <tr>
   <td id="<%= name %>"><%= (lastMentions == mentions) ? lastOrder : i %></td>
@@ -35,6 +38,7 @@
   <% lastMentions = mentions %></tr>
  <% end %>
 
+  </tbody>
 </table>
       </section>
     </div>

@@ -26,13 +26,16 @@
   <col width="15%">
   <col width="15%">
   <col width="15%">
- <tr>
- <th>#</th>
-  <th>Company</th>
-  <th>Contributors</th>
-  <th>Mentions</th>
-  <th>Percent</th>
- </tr>
+ <thead>
+   <tr>
+   <th>#</th>
+    <th>Company</th>
+    <th>Contributors</th>
+    <th>Mentions</th>
+    <th>Percent</th>
+   </tr>
+ </thead>
+ <tbody>
  <% companies.each do |name, values| %>
  <tr>
   <td id="<%= name %>"><%= (lastMentions == values['mentions']) ? lastOrder : i %></td>
@@ -48,6 +51,7 @@
  </tr>
  <% end %>
 
+ </tbody>
 </table>
       </section>
     </div>
