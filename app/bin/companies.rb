@@ -16,12 +16,12 @@ UPDATE_ALL=2
 
 name_variants = Hash.new(0)
 if File.exists? ('../data/company_infos.yml')
-  $companies_info = YAML::load_file('../data/company_infos.yml')
+  $companies_info = YAML::load_file('../config/company_infos.yml')
 else
   $companies_info = Hash.new(0)
 end
 if File.exists? ('../data/company_mapping.yml')
-  company_mapping = YAML::load_file('../data/company_mapping.yml') || Hash.new(0)
+  company_mapping = YAML::load_file('../config/company_mapping.yml') || Hash.new(0)
 else
   company_mapping = Hash.new(0)
 end
@@ -143,8 +143,8 @@ companies.each do |k, values|
     $companies_info.delete(k)
   end
 end
-File.open('../data/company_infos.yml', 'w') { |f| YAML.dump($companies_info, f) }
-File.open('../data/company_mapping.yml', 'w') { |f| YAML.dump(company_mapping, f) }
+File.open('../config/company_infos.yml', 'w') { |f| YAML.dump($companies_info, f) }
+File.open('../config/company_mapping.yml', 'w') { |f| YAML.dump(company_mapping, f) }
 
 sum = contributors.values.reduce(:+).to_f
 puts ERB.new(DATA.readlines.join, 0, '>').result
