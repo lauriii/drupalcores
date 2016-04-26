@@ -6,8 +6,8 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <title>DrupalCores</title>
   <meta name="description" content="<%= description %>">
-  <meta name="author" content="Eric J. Duran">
-  <link type="text/plain" rel="author" href="http://ericduran.github.com/drupalcores/humans.txt" />
+  <meta name="author" content="Lauri Eskola">
+  <link type="text/plain" rel="author" href="https://github.com/lauriii/drupalcores/readme.md" />
   <!-- build:css css/style.css -->
   <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
   <!-- endbuild -->
@@ -19,4 +19,11 @@
           <h1 class="project-title">DrupalCores</h1>
           <h2 class="project-tagline"><%= description %></h2>
         </header>
+    </div>
+    <div class="branch-nav-wrap outer">
+      <ul class="branch-nav inner">
+<% branch_tabs.each do |tab| %>
+         <li><a href="<%= tab['path'] %>" class="<%= tab['class'] %>"><%= tab['name'] %></a></li>
+<% end -%>
+      </ul>
     </div>
