@@ -1,0 +1,100 @@
+Issue #2603348 by rakesh.gectcr, jhodgdon: Comment block contains wrong argument in @param and typo in description
+Issue #2614066 by webflo: Machine name element leaks to much data to drupalSetting
+Issue #2621516 by TravisCarden: hook_page_attachments_alter() @see's itself instead of hook_page_attachments()
+Issue #2608056 by rakesh.gectcr: Comment Typo in TranslatableMarkup class
+Issue #2576881 by snehi, stefan.r: Deprecate theme functions for removal before Drupal 9 (docs only)
+Issue #2619700 by tim.plunkett: \Drupal\Core\Path\PathValidator::getPathAttributes() does not catch MethodNotAllowedException
+Issue #2611078 by felribeiro: Two spaces insted one in classy.libraries.yml
+Issue #2612580 by hchonov: Remove unused service from WidgetBase::flagErrors
+Issue #2567077 by dcrocks, joelpittet, xjm: Followup to Use a Branding Block docs - 2005546
+Issue #2574719 by chegor, snehi, pguillard, Chi: Grammatical error in assertion message "Make sure that a broken handler of type: @type are created"
+Issue #2506485 by justAChris, akalata, subhojit777: Test that Header label + customized label wrapper of a Views table display is not double escaped
+Issue #2608072 by ameymudras: "Object of type "@class" cannot be printed." exception message should not be translated
+Issue #2609928 by micropat, cilefen, Cottser, chx: Xss::attributes() mangles valid attribute names containing numbers
+Issue #2321583 by Wim Leers, DuaelFr: Update CKEditor library to 4.5.5
+Issue #2485761 by mondrake, c470ip, jhedstrom: Support for transparent GIFs broken
+Issue #2587229 by Chi, claudiu.cristea: Cleanup AssertContentTrait::xpath()
+Issue #2599080 by edurenye, Studiographene: Duplicated schema field.formatter.settings.boolean
+Issue #2409547 by znerol: Remove config_export_test.module
+Issue #2598300 by krknth: Improve field_help() by actually using $field_ui_url
+Issue #2563803 by borisson_, DietrichM: Remove deprecated functions from core/modules/system/tests/modules/module_test/module_test.module
+Issue #2392533 by cilefen, bircher, snehi, deepakaryan1988, Oleksiy, priya.chat, Shefarik, rpayanm, venkatadapa: Grammatical error in ModuleUninstallValidatorException message
+Issue #2608054 by stefan.r: Give more context in invalid placeholder error message PlaceholderTrait::placeholderFormat()
+Issue #2618418 by plach: Docs follow-up for "hook_entity_create() affects the data of new translations of existing entities in unexpected and undocumented ways"
+Issue #2613976 by Oleksiy: Remove redundant "See..." that duplicates "@see..." in protected method documentation
+Issue #2607508 by mangy.fox, joelpittet: Incorrect site branding documentation in page.html.twig
+Issue #2620764 by andypost: Fix entity.api hook_entity_translation_* examples
+Issue #2620826 by Lars Toomre: Fix @var directive misuse in interface method docblock
+Issue #2614310 by moshe weitzman: Mention cache responsibilities of form alter implementations
+Issue #2606376 by rakesh.gectcr, Himanshu5050, sdstyles, dawehner, nicrodgers: mark \Drupal::l()  as deprecated
+Issue #2606396 by sdstyles, dawehner: mark \Drupal\Core\Routing\LinkGeneratorTrait and \Drupal\Core\Routing\UrlGeneratorTrait as deprecated
+Issue #2602644 by rakesh.gectcr, Chi: Update @file documentation block for views.module
+Issue #2613998 by joshi.rohit100, Chi: Remove bartik_preprocess_page() reference from page.html.twig
+Issue #2611162 by NickWilde: CssCollectionOptimizer comment typo fix
+Issue #2618886 by alexpott: LocalePluralFormatTest::testPluralEditDateFormatter() is failing randomly
+Back to dev.
+Issue #2606334 by Gábor Hojtsy, YesCT, dawehner, Cottser, larowlan, Wim Leers, catch, davidhernandez, nevergone, effulgentsia, attiks, David_Rothstein, chx, MustangGB, tim.plunkett, plach, joelpittet, Ryan Weal, thamas, LewisNyman, gaele, bojanz, yoroy, skyredwang: Update CHANGELOG.txt for the release (compile list of high level changes)
+Issue #2606334 by Gábor Hojtsy, YesCT, dawehner, Cottser, larowlan, Wim Leers, catch, davidhernandez, nevergone, attiks, David_Rothstein, chx, MustangGB, joelpittet, plach, tim.plunkett, Ryan Weal, thamas, LewisNyman, gaele, bojanz, yoroy, skyredwang: Update CHANGELOG.txt for the release (compile list of high level changes)
+Issue #2382675 by plach, yched, alexpott: hook_entity_create() affects the data of new translations of existing entities in unexpected and undocumented ways
+Issue #2458223 followup by catch, dawehner, alexpott, xjm: Fix block content view ordering on postgres
+Issue #2486467 by alexpott, mtift, tim.plunkett: Single config import form needs to use the config validation events
+Issue #2458223 by geertvd, eiriksm, dawehner, lokapujya, Gábor Hojtsy, jeqq, plach, Dom., jhodgdon, xjm, catch, alexpott, jibran: Duplicated field handlers in field UI for some base table fields
+Issue #2617224 by Wim Leers: Move around/fix some documentation
+Issue #2189345 by benjy, sanduhrs, Mile23, joshtaylor, jbekker, klausi, sun, zaporylie, pfrenssen, jsacksick: run-tests.sh should exit with a failure code if any tests failed
+Issue #2607294 by andypost: Fix entity.api bundle examples
+Issue #2616282 by peter.walter, mikeryan, chx, alexpott: error creating migrate_map table with mysql 5.7.9
+Issue #2614014 by joelpittet, alexpott, dawehner, Cottser, LewisNyman: Progress bar, fieldsets, messages broken in the installer due to theme ordering bug
+Issue #1919468 by alexpott, Berdir: EntityManager::getAllBundleInfo() adds default entity_type_id bundle for entity types with bundles
+Issue #2616336 by alexpott: PathAliasTest is using the RandomGeneratorTrait causing unnecessary output in the testbot logs
+Issue #2616846 by alexpott: PHPUnit is broken again from the command line
+Revert "Issue #2382675 by plach, yched: ContentEntityBase::addTranslation() should not fire hook_entity_create()"
+Issue #2603138 by catch, Wim Leers, tim.plunkett, chx, Fabianx, effulgentsia: CSS/JS asset caching can easily be trashed
+Issue #2612692 by Wim Leers: Add Marek Lewandowski as a CKEditor module maintainer
+Issue #2382675 by plach, yched: ContentEntityBase::addTranslation() should not fire hook_entity_create()
+Issue #2606334 by Gábor Hojtsy, Cottser, dawehner, Wim Leers, davidhernandez, catch, larowlan, nevergone, attiks, YesCT: Update CHANGELOG.txt for the release (compile list of high level changes)
+Issue #2615776 by alexpott: LocalePluralFormatTest is failing on Postgres
+Issue #2608174 by webflo, hussainweb: Update composer-merge-plugin to latest version
+Issue #2501635 by olli, Lendude: Fix QueryParameterTest
+Issue #2615450 by webflo: Fix random test failure caused by EntityFile::processStubRow
+Issue #2607824 by Nitesh Pawar, r_sharma08: Asterisks in language-negotiation-configure-form.html.twig's docblock don't line up
+Issue #2609904 by timmillwood, dawehner: Replace deprecated entity_create() calls in NormalizerTestBase
+Back to dev.
+8.0.0-rc4
+Issue #2608434 by Wim Leers, DuaelFr: Links on images can only have href attribute
+Revert "Issue #2608434 by Wim Leers, DuaelFr: Links on images can only have href attribute"
+Issue #2608434 by Wim Leers, DuaelFr: Links on images can only have href attribute
+Issue #2600666 by tim.plunkett: Route definitions using entity type paramconverters with serial IDs should add an integer requirement
+Issue #2595017 by Cottser, LewisNyman, JohnAlbin: <body> and node <article> use the same class to indicate node type when viewing a node's page
+Issue #2606398 by blackra, chx, anil280988, sdstyles, xjm: Add EntityInterface::toUrl() and EntityInterface::toLink() and mark urlInfo(), url() and link() as deprecated
+Issue #2579663 by Mile23, webflo, joshtaylor: Can't use 'composer install' with missing composer.lock and vendor folder
+Issue #2603010 by neclimdul, webflo, mikeryan: EntityRevision destination can explode with missing nodes
+Revert "Issue #2609770 by dawehner: EntityTypedDataDefinitionTest fails on MySQL"
+Issue #2609770 by dawehner: EntityTypedDataDefinitionTest fails on MySQL
+Issue #2603988 by heykarthikwithu: Unnecessary ternary condition in toolbar JS
+Issue #2577963 by yched, amateescu, klausi: Let entity_ref Selection handlers be in charge of the field validation
+Issue #1810394 by hchonov, plach, YesCT, David Hernández, Schnitzel, vijaycs85, penyaskito, tstoeckler, alexpott, Gábor Hojtsy: Site configuration with domain based language negotiation results in redirecting authenticated users to a different domain when accessing a content entity route for translation language different from the interface language
+Issue #2580293 by alexpott, claudiu.cristea, Mixologic, catch, Fabianx: Patch having test with "PHP Fatal error" is marked as PASSED
+Issue #2606934 by tim.plunkett: \Drupal\Core\Datetime\DateHelper::weekDaysOrdered() does not preserve keys when reordering
+Revert "Issue #2603010 by neclimdul, webflo, mikeryan: EntityRevision destination can explode with missing nodes"
+Issue #2353813 by phenaproxima, quietone, talhaparacha, hosef: Migration path for Update 7.x
+Issue #2605420 by IRuslan, joelpittet: Missing aria-pressed template_preprocess_details() due to lost copied attributes in Attribute
+Issue #2603010 by neclimdul, webflo, mikeryan: EntityRevision destination can explode with missing nodes
+Issue #2606276 by zsofi.major: "Content type where is used this field" incorrect in FieldInstance.php
+Issue #2605618 by zsofi.major: Fix typo in user.source.schema.yml
+Issue #2587043 by quietone, phenaproxima:  Variable to config: search_default_module [d7]
+Issue #2553311 by mikeryan, quietone: Drupal file migrations need to urlencode paths
+Issue #2588289 by Cottser, davidhernandez, mandclu: Update Classy's Twig extends now that it extends from Stable
+Issue #2612008 by webflo: Add proper field labels for vocabulary fields
+Issue #2574737 by thpoul, Wim Leers, aneek: File usage for inline images is only recorded for first field item
+Issue #2590993 by mikeryan, webflo, svendecabooter, dixon_, phenaproxima: Create stub entities with proper default values
+Issue #1824636 by DuaelFr, nod_, meenakshi.r, larowlan, mgifford, falcon03, hefox, alexdmccabe, Stuart Miller, Sam152: Do not move the cursor to the top of the page on ajax calls
+Issue #2613034 by Wim Leers, Crell: Use a route enhancer to handle _form, like everything else
+Issue #2603788 by Wim Leers, dawehner: HtmlResponseSubscriber does not call HtmlResponseAttachmentsProcessor on subrequests
+Issue #2340623 by ceng, R.Muilwijk, dawehner, klausi, Rj-dupe-1, xjm, sebas5384: Views REST export does not support exposed filters
+Issue #2611086 by dawehner, xjm: Expose entity type manager on controller base / Entity / Drupal
+Issue #2609400 by tim.plunkett, effulgentsia, benjamin.merkley: menu.html.twig says that menu_name is an available variable, but it's not
+Issue #2608722 by DuaelFr: Follow-up for #2590403: Remove forgotten references to the target attribute in the drupallink CKEditor plugin
+Issue #2508888 by LKS90, jhedstrom: Fatal error during batch operations causes endless test loop
+Issue #2535774 by dawehner, jhedstrom: Error handler swallows catchable fatal errors
+Issue #2609694 by dawehner, tim.plunkett, Crell, chx, xjm, alexpott: Remove public methods from RouteProvider
+Issue #2609924 by hchonov: EntityReferenceItem annotation defines keys unnecessary twice
