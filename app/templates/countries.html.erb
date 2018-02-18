@@ -22,6 +22,7 @@
   <th>Country</th>
   <th>Contributors</th>
   <th>Mentions</th>
+  <th>Avg.</th>
   <th>Percent</th>
  </tr>
  <% companies.each do |name, values| %>
@@ -38,7 +39,8 @@
     </table>
   </td>
   <td><%= values['contributors'].length %></td>
-  <td><%= values['mentions'] %> (~<%= values['mentions'] / values['contributors'].length %>)</td>
+  <td><%= values['mentions'] %></td>
+  <td>~<%= values['mentions'] / values['contributors'].length %></td>
   <td><%= ((values['mentions']/sum)*100).round(4) %>%</td>
   <% if lastMentions != values['mentions'] %>
     <% lastOrder = i %>
