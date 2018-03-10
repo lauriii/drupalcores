@@ -46,21 +46,25 @@ gulp.task('drupalcore-clone', function () {
 // Update drupalcore repo
 gulp.task('drupalcore', ['drupalcore-clone'], function () {
   var git = simpleGit(paths.drupal);
-  git.listRemote(['--heads'], function (err, heads) {
-      var regex = /refs\/heads\/(.*)/g;
-      var match;
-      var versions = [];
+  return git.listRemote(['--heads'], function (err, heads) {
+    var regex = /refs\/heads\/(.*)/g;
+    var match;
+    var versions = [];
 
-      while (match = regex.exec(heads)) {
-        // Convert 8.6.x to 8.6.0 so that we can find the max version/
-        versions.push(match[1].replace('x', '0'));
-      }
+    while (match = regex.exec(heads)) {
+      // Convert 8.6.x to 8.6.0 so that we can find the max version/
+      versions.push(match[1].replace('x', '0'));
+    }
 
-      versions = versions.filter(semver.valid);
-      var latest_branch = semver.maxSatisfying(versions, '8.*').replace(/0$/,"x");
-      console.log(latest_branch);
-      git.checkout(latest_branch).pull();
+    versions = versions.filter(semver.valid);
+    var latest_branch = semver.maxSatisfying(versions, '8.*').replace(/0$/,"x");
+    git.checkout(latest_branch);
+    console.log("Using branch", latest_branch);
   })
+  .pull()
+  .show(['--summary'], function (err, show) {
+    console.log('Latest',show.split('\n')[0]);
+  });
 });
 
 // Build contributors page
