@@ -1,7 +1,7 @@
 {
   "name": "drupalcores",
   "version": "0.0.1",
-  "license" : "MIT",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/laurii/drupalcores.git"
@@ -24,6 +24,8 @@
     "jshint": "*",
     "jshint-stylish": "^1.0.0",
     "run-sequence": "^2.2",
+    "semver": "^5.5.0",
+    "simple-git": "^1.92.0",
     "svgo": "*"
   }
 }
