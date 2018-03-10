@@ -13,7 +13,8 @@ var minifyHTML = require('gulp-minify-html');
 var uncss = require('gulp-uncss');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
-var gulpif = require('gulp-if');
+var semver = require('semver');
+var simpleGit = require('simple-git');
 
 var paths = {
   scripts: 'app/js/**/*.js',
@@ -37,9 +38,25 @@ gulp.task('lint', function() {
 gulp.task('drupalcore', function () {
   var fs = require('fs');
 
-  return gulp.src('')
-    .pipe(gulpif(!fs.existsSync(paths.drupal), shell(['git clone http://git.drupal.org/project/drupal.git ' + paths.drupal])))
-    .pipe(shell(['git remote update', 'git checkout origin/HEAD'],{ 'ignoreErrors': true, 'cwd': './app/drupalcore'}));
+  if (!fs.existsSync(paths.drupal)) {
+    shell(['git clone http://git.drupal.org/project/drupal.git ' + paths.drupal]);
+  }
+  var git = simpleGit(paths.drupal);
+  git.listRemote(['--heads'], function (err, heads) {
+      var regex = /refs\/heads\/(.*)/g;
+      var match;
+      var versions = [];
+
+      while (match = regex.exec(heads)) {
+        // Convert 8.6.x to 8.6.0 so that we can find the max version/
+        versions.push(match[1].replace('x', '0'));
+      }
+
+      versions = versions.filter(semver.valid);
+      var latest_branch = semver.maxSatisfying(versions, '8.*').replace(/0$/,"x");
+      console.log(latest_branch);
+      git.checkout(latest_branch).pull();
+  })
 });
 
 // Build contributors page

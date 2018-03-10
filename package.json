@@ -1,7 +1,7 @@
 {
   "name": "drupalcores",
   "version": "0.0.1",
-  "license" : "MIT",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/laurii/drupalcores.git"
@@ -10,7 +10,6 @@
     "del": "^0.1.3",
     "gulp": "^3.8.10",
     "gulp-bower": "0.0.7",
-    "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.0.0",
     "gulp-jshint": "^1.9.0",
     "gulp-minify-css": "0.3.11",
@@ -25,5 +24,9 @@
     "jshint-stylish": "^1.0.0",
     "run-sequence": "^2.2",
     "svgo": "*"
+  },
+  "dependencies": {
+    "semver": "^5.5.0",
+    "simple-git": "^1.92.0"
   }
 }
