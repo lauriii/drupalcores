@@ -13,6 +13,7 @@ var minifyHTML = require('gulp-minify-html');
 var uncss = require('gulp-uncss');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
+var gulpif = require('gulp-if');
 var semver = require('semver');
 var simpleGit = require('simple-git');
 
@@ -34,8 +35,16 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter(stylish));
 });
 
-// Clone or update drupalcore repo
-gulp.task('drupalcore', function () {
+// Clone drupalcore
+gulp.task('drupalcore-clone', function () {
+  var fs = require('fs');
+
+  return gulp.src('')
+    .pipe(gulpif(!fs.existsSync(paths.drupal), shell(['git clone http://git.drupal.org/project/drupal.git ' + paths.drupal])))
+});
+
+// Update drupalcore repo
+gulp.task('drupalcore', ['drupalcore-clone'], function () {
   var fs = require('fs');
 
   if (!fs.existsSync(paths.drupal)) {
