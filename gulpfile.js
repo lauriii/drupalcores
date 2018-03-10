@@ -45,11 +45,6 @@ gulp.task('drupalcore-clone', function () {
 
 // Update drupalcore repo
 gulp.task('drupalcore', ['drupalcore-clone'], function () {
-  var fs = require('fs');
-
-  if (!fs.existsSync(paths.drupal)) {
-    shell(['git clone http://git.drupal.org/project/drupal.git ' + paths.drupal]);
-  }
   var git = simpleGit(paths.drupal);
   git.listRemote(['--heads'], function (err, heads) {
       var regex = /refs\/heads\/(.*)/g;
