@@ -70,11 +70,13 @@ contributors.sort_by {|k, v| v }.reverse.each do |name,mentions|
       next
     end
   end
+
   if name_variants.key? name
     urlname = name_variants[name].gsub ' ', '-';
   else
     urlname = name.gsub ' ', '-';
   end
+
   url = "https://www.drupal.org/u/#{urlname}"
   url = URI::encode(url)
   begin
@@ -83,17 +85,24 @@ contributors.sort_by {|k, v| v }.reverse.each do |name,mentions|
   rescue
     next
   end
+
+  # Add a sleep before doing a html request to drupal.org, to avoid hitting a
+  # denial of service and/or hitting the captcha page.
+  sleep(0.5)
+
   found = true
   doc.css('title').each do |title|
     if title.text == 'Page not found | Drupal.org'
       found = false
     end
   end
+
   unless found
     ensure_company(companies, companies_info, COMPANY_NOT_FOUND, 'Users not found', 'Users not found')
     companies[COMPANY_NOT_FOUND]['mentions'] += mentions
     companies[COMPANY_NOT_FOUND]['contributors'][name] = mentions
   end
+
   if found
     found = false
     if company_wrapper = doc.at_css('.field-name-field-organization-name')
@@ -130,6 +139,7 @@ contributors.sort_by {|k, v| v }.reverse.each do |name,mentions|
       companies[COMPANY_NOT_DEFINED]['contributors'][name] = mentions
     end
   end
+
 end
 
 companies = companies.sort_by {|k, v| v['mentions'] }.reverse
@@ -146,6 +156,7 @@ companies.each do |k, values|
     companies_info.delete(k)
   end
 end
+
 File.open('../data/company_infos.yml', 'w') { |f| YAML.dump(companies_info, f) }
 File.open('../data/company_mapping.yml', 'w') { |f| YAML.dump(company_mapping, f) }
 
