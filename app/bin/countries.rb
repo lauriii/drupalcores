@@ -96,11 +96,9 @@ contributors.sort_by {|k, v| v }.reverse.each do |name,mentions|
   if found
     found = false
     if company_wrapper = doc.at_css('.field-name-field-country')
-      if company_wrapper.at_css('img')
-        company = company_wrapper.at_css('img')['alt']
-      else
-        company = company_wrapper.text
-      end
+      # Don't use the image alt, just use the text.
+      company = company_wrapper.text
+      
       if company_wrapper.at_css('a')
         link = company_wrapper.at_css('a')
         link['href'] = 'https://drupal.org' + link['href']
