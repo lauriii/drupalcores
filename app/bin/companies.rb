@@ -77,19 +77,18 @@ contributors.sort_by {|k, v| v }.reverse.each do |name,mentions|
     urlname = name.gsub ' ', '-';
   end
 
-  # Add a sleep before doing a html request to drupal.org, to avoid hitting a
-  # denial of service and/or hitting the captcha page.
-  sleep(0.5)
-
   url = "https://www.drupal.org/u/#{urlname}"
   url = URI::encode(url)
   begin
     html = open(url, :allow_redirections => :safe)
     doc = Nokogiri::HTML(html)
   rescue
-    puts output = doc;
     next
   end
+
+  # Add a sleep before doing a html request to drupal.org, to avoid hitting a
+  # denial of service and/or hitting the captcha page.
+  sleep(0.5)
 
   found = true
   doc.css('title').each do |title|
