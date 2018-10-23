@@ -8,6 +8,8 @@ require 'time'
 require 'net/http'
 require 'json'
 
+USER_AGENT='Mozilla/5.0 (compatible; drupalcores/1.0; +http://www.drupalcores.com)'
+
 COMPANY_NOT_FOUND='not_found'
 COMPANY_NOT_DEFINED='not_defined'
 COMPANY_NOT_SPECIFIED='Not specified'
@@ -78,11 +80,15 @@ contributors.sort_by {|k, v| v }.reverse.each do |name,mentions|
   else
     urlname = name
   end
-  url = URI::encode("https://www.drupal.org/api-d7/user.json?name=#{urlname}")
-  uri = URI(url)
+  uri = URI.parse(URI::encode("https://www.drupal.org/api-d7/user.json?name=#{urlname}"))
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = (uri.scheme == "https")
   begin
-    response = Net::HTTP.get(uri)
-    user = JSON.parse(response)
+    request = Net::HTTP::Get.new(uri.request_uri)
+    request["User-Agent"] = USER_AGENT
+    request["Accept"] = "*/*"
+    response = http.request(request)
+    user = JSON.parse(response.body)
   rescue
     next
   end
@@ -98,10 +104,13 @@ contributors.sort_by {|k, v| v }.reverse.each do |name,mentions|
     found = false
     organization = ''
     for organization in user['list'][0]['field_organizations']
-      organization_uri = URI(organization['uri'].concat('.json'));
+      organization_uri = URI(organization['uri'].concat('.json'))
       begin
-        organization_response = Net::HTTP.get(organization_uri)
-        organization = JSON.parse(organization_response)
+        organization_request = Net::HTTP::Get.new(organization_uri.request_uri)
+        organization_request["User-Agent"] = USER_AGENT
+        organization_request["Accept"] = "*/*"
+        organization_response = http.request(organization_request)
+        organization = JSON.parse(organization_response.body)
         if organization['field_current']
           found = true
           break
