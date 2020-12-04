@@ -20,8 +20,8 @@ contributors = Hash.new(0)
 commits = Array.new
 reverts = Array.new
 issue_regexp = Regexp.new '#[0-9]+'
-reverts_regexp = Regexp.new '^Revert \"(?<credits>.+#[0-9]+.* by [^:]+:).*'
-reverts_regexp_loose = Regexp.new '^Revert .*(?<issue>#[0-9]+).*'
+reverts_regexp = Regexp.new '^Revert \"(?<credits>[^Revert \"].+#[0-9]+.* by [^:]+:).*'
+reverts_regexp_loose = Regexp.new '^Revert (?!\"Revert\ ).*(?<issue>#[0-9]+).*'
 
 %x[#{git_command}].split("\n").each do |c|
   if c =~ reverts_regexp then
