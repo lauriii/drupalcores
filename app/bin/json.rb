@@ -19,6 +19,8 @@ name_mappings = YAML::load_file('../config/name_mappings.yml')
 contributors = Hash.new(0)
 commits = Array.new
 reverts = Array.new
+head = ''
+head_regexp = Regexp.new '^origin/HEAD set to (?<head>[0-9]+\.[0-9]+\.x)'
 issue_regexp = Regexp.new '#[0-9]+'
 reverts_regexp = Regexp.new '^Revert \"(?<credits>.+#[0-9]+.* by [^:]+:).*'
 reverts_regexp_loose = Regexp.new '^Revert .*(?<issue>#[0-9]+).*'
@@ -28,6 +30,8 @@ reverts_regexp_loose = Regexp.new '^Revert .*(?<issue>#[0-9]+).*'
     reverts.push(c[reverts_regexp, "credits"])
   elsif c =~ reverts_regexp_loose then
     reverts.push(c[reverts_regexp_loose, "issue"])
+  elsif c =~ head_regexp then
+    head = c[head_regexp, "head"]
   else
     commits.push(c)
   end
@@ -66,7 +70,8 @@ output = {
     :twoTen => contributors.select {|k,v| (v > 1 && v < 11) }.length,
     :TenOver => contributors.select {|k,v| v > 10}.length
   },
-  :contributors => contributors
+  :contributors => contributors,
+  :head => head
 }
 
 puts output.to_json

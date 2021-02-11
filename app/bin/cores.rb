@@ -13,6 +13,7 @@ lastMentions = 0;
 file = file = File.read('../../tmp/data.json')
 data = JSON.parse(file)
 contributors = data['contributors']
+head = data['head']
 sum = contributors.values.reduce(:+).to_f
 puts ERB.new(DATA.readlines.join, 0, '>').result
 
